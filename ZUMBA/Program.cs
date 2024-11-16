@@ -10,7 +10,12 @@ namespace CS258
     class Zumba
     {
         // Data
-        // Weekly attendance (2D array)
+
+
+
+        // Weekly attendance (2D array) 
+
+
 
         // Daily attendance (1D array)
 
@@ -25,11 +30,28 @@ namespace CS258
         {
             // Create and initialize a Zumba class instance
 
+
+
             // The do-while loop
             // Textbook@P357
+            
             do
             {
+                string userResponse;
+                Console.WriteLine("To display attendance and revenue info please press Y");
+                userResponse = Console.ReadLine();
                 // Ask user if to show the attendance/income)
+                if (userResponse ==  "y" || userResponse == "Y")
+                {
+                    
+
+                }
+                else if(userResponse == "N" || userResponse == "n" )
+                {
+
+
+                }
+
 
                 // Ask user if to continue the program
 
@@ -38,6 +60,7 @@ namespace CS258
                 // Textbook@P369: continue statement
             }
             while (true);
+            
         }
 
         public int GetWeeklyAttendance()
