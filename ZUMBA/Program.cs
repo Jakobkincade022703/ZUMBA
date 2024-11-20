@@ -4,22 +4,37 @@
  * Program description: 
  */
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CS258
 {
     class Zumba
     {
         // Data
+        int sessionCost = 4;
 
 
 
-        // Weekly attendance (2D array) 
+        // Weekly attendance (2D array)
 
-
+       int[,] wAttendance = 
+            
+       {
+            {8,10,14,22},
+            {11,15,17,18},
+            {12,12,18,20},
+            {9,14,13,13},
+            {10,12,17,22},
+            {12,11,9,15}
+       };
 
         // Daily attendance (1D array)
 
+        int[] dAttendance = { };
+
         // Daily revenue (1D array)
+
+        int[] dRevenue = { };
 
         // Weekly time-slot attendance (1D array)
 
@@ -29,8 +44,9 @@ namespace CS258
         static void Main(string[] args)
         {
             // Create and initialize a Zumba class instance
+            Zumba z = new Zumba();
 
-
+            
 
             // The do-while loop
             // Textbook@P357
@@ -62,7 +78,7 @@ namespace CS258
             while (true);
             
         }
-
+        /*
         public int GetWeeklyAttendance()
         {
             
@@ -72,18 +88,29 @@ namespace CS258
         {
 
         }
+        */
 
         public int[] GetPerDayAttendance()
         {
-
+          int size = wAttendance.GetLength(0);
+          dAttendance = new int[size];
+           
+            for ( int r = 0; r < wAttendance.GetLength(0); r++)
+            {
+                for (int e = 0; e < wAttendance.GetLength(1); e++)
+                {
+                    dAttendance[r] += wAttendance[r, e];
+                }
+            }
+         return dAttendance;
         }
-
+        /*
         public int GetWeeklyRevenue()
         {
-
+         
         }
-
-        public int[] GetPerSlotRevenue()
+        
+       public int[] GetPerSlotRevenue()
         {
 
         }
@@ -95,7 +122,8 @@ namespace CS258
 
         public void Display()
         {
+       */
 
         }
     }
-}
+
