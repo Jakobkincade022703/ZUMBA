@@ -11,7 +11,7 @@ namespace CS258
     class Zumba
     {
         // Data
-        int sessionCost = 4;
+       
 
 
 
@@ -20,17 +20,17 @@ namespace CS258
        int[,] wAttendance = 
             
        {
-            {8,10,14,22},
-            {11,15,17,18},
-            {12,12,18,20},
-            {9,14,13,13},
-            {10,12,17,22},
-            {12,11,9,15}
+            {8,10,14,22}, //monday
+            {11,15,17,18}, //tuesday
+            {12,12,18,20}, // wensday
+            {9,14,13,13}, //thursday 
+            {10,12,17,22}, //Friday
+            {12,11,9,15} //saturday 
        };
 
         // Daily attendance (1D array)
 
-        int[] dAttendance = { };
+        int[] dAttendance = { };  //Populated (Done)
 
         // Daily revenue (1D array)
 
@@ -44,9 +44,10 @@ namespace CS258
         static void Main(string[] args)
         {
             // Create and initialize a Zumba class instance
-            Zumba z = new Zumba();
-
-            
+             Zumba z = new Zumba();
+            foreach (int i in z.GetPerDayRevenue())
+                Console.WriteLine(i);
+          
 
             // The do-while loop
             // Textbook@P357
@@ -95,11 +96,11 @@ namespace CS258
           int size = wAttendance.GetLength(0);
           dAttendance = new int[size];
            
-            for ( int r = 0; r < wAttendance.GetLength(0); r++)
+            for ( int  week = 0; week < wAttendance.GetLength(0); week++)
             {
-                for (int e = 0; e < wAttendance.GetLength(1); e++)
+                for (int day = 0; day < wAttendance.GetLength(1); day++)
                 {
-                    dAttendance[r] += wAttendance[r, e];
+                    dAttendance[week] += wAttendance[week, day];
                 }
             }
          return dAttendance;
@@ -114,16 +115,31 @@ namespace CS258
         {
 
         }
-
+        */
         public int[] GetPerDayRevenue()
         {
+            int sessionCost = 4;
+          
+            int size = wAttendance.GetLength(0);
+            dAttendance = new int[size];
 
+            for (int week = 0; week < wAttendance.GetLength(0); week++)
+            {
+                for (int day = 0; day < wAttendance.GetLength(1); day++)
+                {
+                    dAttendance[week] += wAttendance[week, day] * sessionCost;
+                }
+
+            }
+            return dAttendance ;
         }
-
         public void Display()
         {
-       */
+
 
         }
     }
+
+}           
+        
 
