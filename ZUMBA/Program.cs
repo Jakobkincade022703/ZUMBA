@@ -37,15 +37,18 @@ namespace CS258
         int[] dRevenue = { };
 
         // Weekly time-slot attendance (1D array)
+        int[] wSlotAttendance = { };
 
         // Weekly time-slot revenue (1D array)
+
+        int[] sRevenue = { };
 
         // Methods
         static void Main(string[] args)
         {
             // Create and initialize a Zumba class instance
              Zumba z = new Zumba();
-            foreach (int i in z.GetPerDayRevenue())
+               foreach (int i in z.GetPerSlotAttendance())
                 Console.WriteLine(i);
           
 
@@ -84,12 +87,20 @@ namespace CS258
         {
             
         }
-
+        */
         public int[] GetPerSlotAttendance()
         {
+           
 
+            for (int column = 0 ; column < wAttendance.GetLength(0); ++column)
+            {
+                for(int row =
+                wSlotAttendance [row] += wAttendance[row,0];
+
+            }
+            return wSlotAttendance;
         }
-        */
+        
 
         public int[] GetPerDayAttendance()
         {
@@ -112,10 +123,8 @@ namespace CS258
         }
         
        public int[] GetPerSlotRevenue()
-        {
-
-        }
-        */
+      */
+        
         public int[] GetPerDayRevenue()
         {
             int sessionCost = 4;
